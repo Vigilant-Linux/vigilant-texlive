@@ -16,3 +16,13 @@ BEGIN {
 END {
         print " }"
         print "}"
+}
+/tlpkg/tlpobj/ { next }
+{
+       sub(".*/", "", $9)
+       print "         vmove usr/bin/" $9
+}
+#lrwxrwxrwx 0 root  root         0 Aug 14    2014 bin/x86_64-linux/dviluatex -> luatex
+#-rwxr-xr-x 0 root  root 11101488 May 11 11:25 bin/x86_64-linux/luajittex
+'
+done
